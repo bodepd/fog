@@ -9,6 +9,18 @@ def dns_providers
         :ttl => 60
       }
     },
+    DNSMadeEasy  => {
+      :mocked => false
+    },
+    DNSimple  => {
+      :mocked => false
+    },
+    Dynect    => {
+      :mocked => false,
+      :zone_attributes => {
+        :email => 'fog@example.com'
+      }
+    },
     Linode    => {
       :mocked => false,
       :zone_attributes => {
@@ -19,15 +31,6 @@ def dns_providers
       :mocked => false
     },
     Zerigo    => {
-      :mocked => false
-    },
-    Dynect    => {
-      :mocked => false
-    },
-    DNSimple  => {
-      :mocked => false
-    },
-    DNSMadeEasy  => {
       :mocked => false
     }
   }
