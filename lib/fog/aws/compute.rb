@@ -56,6 +56,7 @@ module Fog
       request :describe_availability_zones
       request :describe_images
       request :describe_instances
+      request :describe_instance_types
       request :describe_reserved_instances
       request :describe_instance_status
       request :describe_key_pairs
