@@ -130,8 +130,13 @@ module Fog
         #  >
         #
 
-        def all
-          load(Fog::Compute::AWS::FLAVORS)
+        def all(query_endpoint=false)
+          if query_endpoint
+            data = connection.describe_instance_types.body
+            load(data['instanceTypeSet'])
+          else
+            load(Fog::Compute::AWS::FLAVORS)
+          end
           self
         end
 
@@ -156,8 +161,8 @@ module Fog
         #>
         #
 
-        def get(flavor_id)
-          self.class.new(:connection => connection).all.detect {|flavor| flavor.id == flavor_id}
+        def get(flavor_id, query_endpoint=false)
+          self.class.new(:connection => connection).all(query_endpoint).detect {|flavor| flavor.id == flavor_id}
         end
 
       end
