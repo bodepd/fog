@@ -6,13 +6,13 @@ module Fog
 
       class Flavor < Fog::Model
 
-        identity :id
+        identity :id,     aliases => 'name'
 
         attribute :bits
-        attribute :cores
-        attribute :disk
+        attribute :cores, aliases => 'cores'
+        attribute :disk,  aliases => 'diskGb'
         attribute :name
-        attribute :ram
+        attribute :ram,   aliases => 'memoryMb'
 
       end
 
